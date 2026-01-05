@@ -5,15 +5,25 @@ export const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation<AuthResponse, LoginRequest>({
       query: (body) => ({
-        url: "/login",
+        url: "/auth/login",
         method: "POST",
         body,
       }),
     }),
     register: builder.mutation<AuthResponse, RegisterRequest>({
       query: (body) => ({
-        url: "/register",
+        url: "/auth/register",
         method: "POST",
+        body,
+      }),
+    }),
+    changePassword: builder.mutation<
+      { message?: string; user?: { isFirstLogin?: boolean } },
+      { oldPassword: string; newPassword: string }
+    >({
+      query: (body) => ({
+        url: "/users/change-password",
+        method: "PATCH",
         body,
       }),
     }),
@@ -21,4 +31,4 @@ export const authApi = baseApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useLoginMutation, useRegisterMutation } = authApi;
+export const { useLoginMutation, useRegisterMutation, useChangePasswordMutation } = authApi;

@@ -1,4 +1,4 @@
-import type { AuthUser } from "./authSlice";
+import type { AuthUser } from "../authSlice";
 
 export type LoginRequest = {
   username: string;

@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { tokenStorage } from "../../../utils/tokenStorage";
+import { tokenStorage } from "../../utils/tokenStorage";
 
 export type UserRole = "admin" | "principal" | "teacher";
 
